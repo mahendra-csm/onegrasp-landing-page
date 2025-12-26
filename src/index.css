@@ -1,0 +1,276 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap');
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* OneGrasp Design System - Professional Career & Education Platform
+  Primary: Deep Red | Accent: Gold/Yellow | Neutrals: Charcoal/White
+*/
+
+@layer base {
+  :root {
+    /* Primary - Deep Red */
+    --primary: 0 77% 44%;
+    --primary-foreground: 0 0% 100%;
+    --primary-dark: 0 77% 35%;
+    --primary-light: 0 77% 55%;
+    
+    /* Accent - Gold/Yellow */
+    --accent: 45 100% 51%;
+    --accent-foreground: 0 0% 10%;
+    --accent-light: 45 100% 65%;
+    
+    /* Background & Surfaces */
+    --background: 0 0% 100%;
+    --foreground: 220 20% 15%;
+    
+    --card: 0 0% 100%;
+    --card-foreground: 220 20% 15%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 20% 15%;
+    
+    /* Secondary - Light gray surfaces */
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 220 20% 15%;
+    
+    /* Muted */
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 10% 45%;
+    
+    /* Destructive */
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+    
+    /* Border & Input */
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 0 77% 44%;
+    
+    --radius: 0.5rem;
+    
+    /* Sidebar */
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 220 10% 26%;
+    --sidebar-primary: 0 77% 44%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 14% 96%;
+    --sidebar-accent-foreground: 220 10% 26%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 0 77% 44%;
+    
+    /* Custom tokens */
+    --gradient-primary: linear-gradient(135deg, hsl(0, 77%, 44%), hsl(0, 77%, 35%));
+    --gradient-accent: linear-gradient(135deg, hsl(45, 100%, 51%), hsl(45, 100%, 60%));
+    --gradient-hero: linear-gradient(180deg, hsl(0, 77%, 44%) 0%, hsl(0, 77%, 30%) 100%);
+    --gradient-dark: linear-gradient(135deg, hsl(220, 20%, 15%), hsl(220, 20%, 8%));
+    
+    --shadow-soft: 0 4px 20px -4px hsl(0 0% 0% / 0.1);
+    --shadow-card: 0 10px 40px -10px hsl(0 0% 0% / 0.12);
+    --shadow-elevated: 0 20px 60px -15px hsl(0 0% 0% / 0.15);
+    --shadow-glow-primary: 0 0 40px hsl(0, 77%, 44%, 0.3);
+    --shadow-glow-accent: 0 0 40px hsl(45, 100%, 51%, 0.4);
+    
+    /* Typography */
+    --font-display: 'Poppins', sans-serif;
+    --font-body: 'Poppins', sans-serif;
+  }
+
+  .dark {
+    --background: 220 20% 8%;
+    --foreground: 0 0% 98%;
+
+    --card: 220 20% 12%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 220 20% 12%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 0 77% 55%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 20% 18%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 220 20% 18%;
+    --muted-foreground: 220 10% 65%;
+
+    --accent: 45 100% 55%;
+    --accent-foreground: 0 0% 10%;
+
+    --destructive: 0 62.8% 45%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 220 20% 20%;
+    --input: 220 20% 20%;
+    --ring: 0 77% 55%;
+
+    --sidebar-background: 220 20% 10%;
+    --sidebar-foreground: 220 10% 90%;
+    --sidebar-primary: 0 77% 55%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 20% 18%;
+    --sidebar-accent-foreground: 220 10% 90%;
+    --sidebar-border: 220 20% 20%;
+    --sidebar-ring: 0 77% 55%;
+  }
+}
+
+@layer base {
+  /* global border utility removed — borders should be applied explicitly to components */
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-body);
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    @apply font-bold tracking-tight;
+  }
+}
+
+@layer components {
+  /* Animated gradient background */
+  .gradient-animated {
+    background: linear-gradient(-45deg, hsl(0, 77%, 44%), hsl(0, 77%, 35%), hsl(0, 77%, 50%), hsl(0, 77%, 40%));
+    background-size: 400% 400%;
+    animation: gradient-shift 15s ease infinite;
+  }
+  
+  @keyframes gradient-shift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  /* Glass effect */
+  .glass {
+    @apply bg-background/80 backdrop-blur-md border border-border/50;
+  }
+  
+  /* Text gradient */
+  .text-gradient-primary {
+    background: linear-gradient(135deg, hsl(0, 77%, 44%), hsl(0, 77%, 55%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .text-gradient-accent {
+    background: linear-gradient(135deg, hsl(45, 100%, 51%), hsl(45, 100%, 65%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  /* Section styling */
+  .section-padding {
+    @apply py-10 md:py-14 lg:py-20;
+  }
+  
+  .container-custom {
+    @apply container mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  /* Card hover effects */
+  .card-hover {
+    @apply transition-all duration-300 ease-out;
+  }
+  
+  .card-hover:hover {
+    @apply -translate-y-1;
+    box-shadow: var(--shadow-elevated);
+  }
+  
+  /* Button glow effect */
+  .btn-glow-primary:hover {
+    box-shadow: var(--shadow-glow-primary);
+  }
+  
+  .btn-glow-accent:hover {
+    box-shadow: var(--shadow-glow-accent);
+  }
+  
+  /* Table styling */
+  .onegrasp-table {
+    @apply w-full border-collapse;
+  }
+  
+  .onegrasp-table th {
+    @apply bg-primary text-primary-foreground font-semibold p-3 text-left border-b-2 border-primary-foreground/20;
+  }
+  
+  .onegrasp-table td {
+    @apply p-3 border-b border-border;
+  }
+  
+  .onegrasp-table tr:hover td {
+    @apply bg-secondary/50;
+  }
+  
+  /* Fade in animation */
+  .fade-in-up {
+    animation: fadeInUp 0.6s ease-out forwards;
+    opacity: 0;
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Stagger children animations */
+  .stagger-children > * {
+    opacity: 0;
+    animation: fadeInUp 0.5s ease-out forwards;
+  }
+  
+  .stagger-children > *:nth-child(1) { animation-delay: 0.1s; }
+  .stagger-children > *:nth-child(2) { animation-delay: 0.2s; }
+  .stagger-children > *:nth-child(3) { animation-delay: 0.3s; }
+  .stagger-children > *:nth-child(4) { animation-delay: 0.4s; }
+  .stagger-children > *:nth-child(5) { animation-delay: 0.5s; }
+  .stagger-children > *:nth-child(6) { animation-delay: 0.6s; }
+  
+  /* Number counter styling */
+  .stat-number {
+    font-family: var(--font-display);
+    @apply text-4xl md:text-5xl font-extrabold text-primary;
+  }
+  
+  /* Decorative elements */
+  .line-accent {
+    @apply h-1 w-16 bg-accent rounded-full;
+  }
+  
+  .line-primary {
+    @apply h-1 w-16 bg-primary rounded-full;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .animation-delay-100 { animation-delay: 100ms; }
+  .animation-delay-200 { animation-delay: 200ms; }
+  .animation-delay-300 { animation-delay: 300ms; }
+  .animation-delay-400 { animation-delay: 400ms; }
+  .animation-delay-500 { animation-delay: 500ms; }
+  .animation-delay-600 { animation-delay: 600ms; }
+}
