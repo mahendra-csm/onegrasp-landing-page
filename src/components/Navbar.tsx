@@ -34,7 +34,7 @@ const Navbar = () => {
       <div className="container-custom flex items-center justify-between">
         {/* Logo */}
         <a href="/" className="flex items-center gap-2">
-          <img src="/onegrasp-logo.webp" alt="OneGrasp" className="h-8 md:h-10 lg:h-12 object-contain" />
+          <img src="/OneGrasp-logo.webp" alt="OneGrasp" className="h-8 md:h-10 lg:h-12 object-contain" />
         </a>
 
         {/* Desktop Navigation */}
